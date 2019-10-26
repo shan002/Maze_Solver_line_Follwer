@@ -56,15 +56,6 @@ void setup() {
 }
 
 void loop() {
-//  if(run_tracker == 0){
-//    DRY_RUN();
-//  }
-////  // Serial.print(run_traker);
-//  else{
-//    ACTUAL_RUN();
-//  }
-
-
 
   SENSOR_READ();
 //  LINE_TRACK();
@@ -137,8 +128,6 @@ void DRY_RUN(){                                          // Main Function - 01
   }
 }
 
-
-
 void ACTUAL_RUN(){                                         //---------   Main Function - 02  ---------------------
   SENSOR_READ();                                             // white line on black surface ---> black e 0 and white e 1
   digitalWrite(13, LOW);
@@ -171,10 +160,6 @@ void ACTUAL_RUN(){                                         //---------   Main Fu
   } 
 }
 
-
-
-
-
 void SENSOR_READ() // black line on white surface
 {
   Serial.println("ok");
@@ -203,8 +188,6 @@ void SENSOR_PRINT()
   Serial.println(' ');
 }
 
-
-
 void LINE_TRACK(){
   sum = ir[1] + ir[2] + ir[3] + ir[4] + ir[5] + ir[6] + ir[7];
   if(sum > 3){
@@ -229,10 +212,6 @@ void LINE_TRACK(){
 //  Serial.println(right_speed);
   previous_error = error;
 }
-
-
-
-
 
 char NODE_CHECK(){                          //l, r, L, R, T, P, d, b, Y, U
   char ch;
@@ -289,19 +268,6 @@ char NODE_CHECK(){                          //l, r, L, R, T, P, d, b, Y, U
   delay(100);
   return ch;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void TURN(char node, char turn)                                    // node = l, r, L, R, P, T, E     &&     turn = l, r, L, R, S
@@ -447,7 +413,6 @@ void TURN(char node, char turn)                                    // node = l, 
 }
 
 
-
 void MOTOR(int left_speed, int right_speed){
   if(left_speed >= 0){
     digitalWrite(L1, HIGH);
@@ -514,5 +479,3 @@ void CALCULATE_THE_SHORTEST_PATH()
     }
   }
 }
-
-
